@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc", 
     "migration:dev": "prisma migrate dev",
+    "migration:prod": "prisma migrate deploy",
     "test": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand",
     "test:coverage": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand --coverage --collectCoverageFrom='./src/**'",
     "dev:load-envs": "dotenv -e .env.development",
-    "dev": "nodemon ./src/server.ts"
+    "dev": "nodemon ./src/server.ts",
+    "start": "node dist/src/server.js"
   },
   "repository": {
     "type": "git",

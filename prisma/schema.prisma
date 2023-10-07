@@ -15,7 +15,7 @@ model Participants {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String   @db.VarChar(255)
-  balance   Int
+  balance   Float    @default(0)
   Bet       Bet[]
 }
 
@@ -27,7 +27,7 @@ model Game {
   awayTeamName  String   @db.VarChar(20)
   homeTeamScore Int
   awayTeamScore Int
-  isFinished    Boolean
+  isFinished    Boolean  @default(false)
   Bet           Bet[]
 }
 
@@ -37,11 +37,11 @@ model Bet {
   updatedAt     DateTime     @updatedAt
   homeTeamScore Int
   awayTeamScore Int
-  amountBet     Int
+  amountBet     Float
   gameId        Int
   participantId Int
-  status        String
-  amountWon     Int
+  status        String       @default("PENDING")
+  amountWon     Float?
   Game          Game         @relation(fields: [gameId], references: [id])
   Participants  Participants @relation(fields: [participantId], references: [id])
 }

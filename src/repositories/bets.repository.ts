@@ -1,4 +1,4 @@
-import prisma from "../database/database";
+import { prisma } from "../database/database";
 import { BetInfo } from "../protocols";
 
 export async function postBet(body: BetInfo) {

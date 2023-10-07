@@ -1,4 +1,4 @@
-import prisma from "../database/database";
+import { prisma } from "../database/database";
 import { ParticipantInfo } from "../protocols";
 
 export async function postParticipant(body: ParticipantInfo) {
